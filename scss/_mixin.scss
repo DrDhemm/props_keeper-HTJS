@@ -1,0 +1,46 @@
+@import "variable";
+
+@mixin flex($al: center, $jc: center) {
+  display: flex;
+  align-items: $al;
+  justify-content: $jc;
+}
+
+@mixin linkReset($c: $base01) {
+  list-style: none;
+  padding: 0;
+
+  li a {
+    text-decoration: none;
+    color: $c;
+  }
+}
+
+@mixin button($m: fill) {
+  padding: 0.4em 0.8em;
+
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: $borderRadiusButton;
+  font-weight: 500;
+  transition: $transitionPreset;
+  transition-property: color, background-color, opacity;
+
+  @if $m == fill {
+    background-color: red;
+  } @else if $m == outline {
+    border: $borderThickness solid $base01;
+    background-color: transparent;
+    color: $base01;
+
+    &:hover {
+      background-color: $base01;
+      color: $base02;
+    }
+
+    &:active {
+        opacity: .8;
+    }
+  }
+}

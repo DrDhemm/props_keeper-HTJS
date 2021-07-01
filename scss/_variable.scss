@@ -1,0 +1,20 @@
+// Fonts value
+$defaultFontSize: 16px;
+
+// Button value
+$borderRadiusButton: 6px;
+$borderThickness: 2px;
+
+// Motion value
+$transitionPreset: 0.3s ease-in-out;
+
+// Color value
+$base01: white;
+$base02: #0E1111;
+$baseBGGradient: linear-gradient(
+  298deg,
+  rgba(14, 17, 17, 1) 46%,
+  rgba(29, 34, 34, 1) 67%,
+  rgba(41, 47, 47, 1) 86%,
+  rgba(65, 73, 73, 1) 100%
+);
