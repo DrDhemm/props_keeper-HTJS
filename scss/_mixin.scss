@@ -16,9 +16,10 @@
   }
 }
 
-@mixin button($m: fill) {
-  padding: 0.4em 0.8em;
+@mixin button($m: fill, $f: 0.75rem) {
+  padding: 0.5em 0.8em 0.4em;
 
+  font-size: $f;
   outline: none;
   border: none;
   cursor: pointer;
@@ -27,8 +28,24 @@
   transition: $transitionPreset;
   transition-property: color, background-color, opacity;
 
+  img {
+    height: 1em;
+    margin-right: 0.7em;
+  }
+
   @if $m == fill {
-    background-color: red;
+    border: $borderThickness solid $base01;
+    background-color: $base01;
+    color: $base02;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
   } @else if $m == outline {
     border: $borderThickness solid $base01;
     background-color: transparent;
@@ -40,7 +57,7 @@
     }
 
     &:active {
-        opacity: .8;
+      opacity: 0.8;
     }
   }
 }

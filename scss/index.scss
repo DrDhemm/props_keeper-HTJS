@@ -13,18 +13,39 @@ html {
 
 body {
   width: 100vw;
-  height: 100vh;
+  position: relative;
 
   background: $baseBGGradient;
   background-repeat: no-repeat;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $base02;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $base01;
+    border-radius: 10px;
+  }
 }
 
 nav {
   @include flex(center, space-between);
 
+  // responsive value
+  font-size: 1rem;
+
   width: 100%;
-  height: 4.5rem;
+  height: 4.5em;
   padding: 0.3em 5em;
+  position: sticky;
+  top: 0;
+  left: 0;
 
   .logo {
     @include flex;
@@ -38,9 +59,9 @@ nav {
   }
 
   .navigation {
-    width: 18rem;
+    width: 19em;
 
-    font-size: 0.86rem;
+    font-size: 0.9em;
     font-weight: 500;
 
     ul {
@@ -98,22 +119,97 @@ nav {
 
   .mainbutton {
     button {
-      @include button(outline);
+      @include button(outline, 0.75em);
     }
   }
 }
 
-.firstview {
-  .firstaction {
-    margin-top: 3em;
+.overlay {
+  display: none;
 
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: $base02;
+  z-index: 10;
+
+  &::before {
+    @include flex;
+
+    height: 100%;
+    width: 100%;
+
+    font-size: clamp(0.5rem, 0.1429rem + 1.7857vw, 1rem);
     color: $base01;
-    text-align: center;
+    content: "This page not yet support viewport with dimension at 767px or lower";
+  }
+}
 
-    p {
-margin-top: 1em;
+.views {
+  width: 100%;
+  padding-top: 3em;
 
-      font-size: clamp();
+  .firstview {
+    background-image: url("../assets/BG01.svg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 80%;
+
+    .firstaction {
+      color: $base01;
+      text-align: center;
+
+      h1 {
+        font-size: clamp(1.8rem, 0.8571rem + 1.9643vw, 4rem);
+      }
+
+      p {
+        margin-top: 1em;
+
+        font-size: clamp(0.7rem, 0.1429rem + 1.1607vw, 2rem);
+      }
     }
+
+    .ctabutton {
+      margin-top: 3em;
+
+      text-align: center;
+
+      button {
+        &:nth-child(1) {
+          @include button(outline, 1rem);
+
+          margin-right: 1em;
+        }
+
+        &:nth-child(2) {
+          @include button(fill, 1rem);
+        }
+      }
+    }
+
+    .details {
+      @include flex;
+
+      .ceoimg {
+        img {
+          height: 40rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .overlay {
+    display: block;
+  }
+
+  .views,
+  nav {
+    display: none;
   }
 }
