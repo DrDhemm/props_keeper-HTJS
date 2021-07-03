@@ -150,7 +150,7 @@ nav .mainbutton button:active {
   padding-top: 3em;
 }
 .views .firstview {
-  background-image: url("../assets/BG01.svg");
+  background-image: url("./assets/BG01.svg");
   background-repeat: no-repeat;
   background-position: top;
   background-size: 100% 80%;
