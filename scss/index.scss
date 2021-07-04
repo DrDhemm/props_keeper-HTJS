@@ -194,6 +194,48 @@ nav {
     .details {
       @include flex;
 
+      .toppeople {
+        @include flex($f: column);
+
+        color: $base01;
+
+        .card {
+          padding: 1em 2em;
+          margin-top: 1em;
+
+          border: $borderThicknessCard solid $base01;
+          border-radius: $borderRadiusCard;
+
+          .data {
+            @include flex($f: row);
+
+            div:nth-child(n+2) {
+              margin-left: 1em;
+          }
+
+            .details {
+              @include flex($al: flex-start, $f: column);
+            }
+
+            .contacts {
+              a:last-child {
+                margin-left: .5em;
+              }
+
+              a img {
+                width: 3em;
+              }
+            }
+
+            .profile {
+              img {
+                width: 5em;
+              }
+            }
+          }
+        }
+      }
+
       .ceoimg {
         img {
           height: 40rem;

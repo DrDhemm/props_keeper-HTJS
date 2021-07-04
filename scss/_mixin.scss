@@ -1,9 +1,10 @@
 @import "variable";
 
-@mixin flex($al: center, $jc: center) {
+@mixin flex($al: center, $jc: center, $f: unset) {
   display: flex;
   align-items: $al;
   justify-content: $jc;
+  flex-direction: $f;
 }
 
 @mixin linkReset($c: $base01) {
@@ -34,7 +35,7 @@
   }
 
   @if $m == fill {
-    border: $borderThickness solid $base01;
+    border: $borderThicknessButton solid $base01;
     background-color: $base01;
     color: $base02;
     opacity: 0.8;
@@ -47,7 +48,7 @@
       opacity: 0.8;
     }
   } @else if $m == outline {
-    border: $borderThickness solid $base01;
+    border: $borderThicknessButton solid $base01;
     background-color: transparent;
     color: $base01;
 
