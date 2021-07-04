@@ -60,5 +60,17 @@
     &:active {
       opacity: 0.8;
     }
+  } @else if $m == switcher {
+    padding: .2em .5em;
+
+    opacity: .5;
+
+    &.active {
+      opacity: 1;
+    }
+
+    &:hover {
+      opacity: .8;
+    }
   }
 }

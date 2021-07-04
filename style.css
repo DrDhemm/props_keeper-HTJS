@@ -2,6 +2,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  color: white;
 }
 
 html {
@@ -40,10 +41,14 @@ nav {
   top: 0;
   left: 0;
 }
+nav .logo,
+nav .mainbutton {
+  flex: 1;
+}
 nav .logo {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: unset;
   height: 100%;
 }
@@ -101,6 +106,12 @@ nav .navigation ul li.active a, nav .navigation ul li.active:hover a {
 nav .navigation ul li.active::after, nav .navigation ul li.active:hover::after {
   width: 100%;
 }
+nav .mainbutton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: unset;
+}
 nav .mainbutton button {
   padding: 0.5em 0.8em 0.4em;
   font-size: 0.75em;
@@ -145,7 +156,6 @@ nav .mainbutton button:active {
   height: 100%;
   width: 100%;
   font-size: clamp(0.5rem, 0.1429rem + 1.7857vw, 1rem);
-  color: white;
   content: "This page not yet support viewport with dimension at 767px or lower";
 }
 
@@ -160,7 +170,6 @@ nav .mainbutton button:active {
   background-size: 100% 80%;
 }
 .views .firstview .firstaction {
-  color: white;
   text-align: center;
 }
 .views .firstview .firstaction h1 {
@@ -176,7 +185,7 @@ nav .mainbutton button:active {
 }
 .views .firstview .ctabutton button:nth-child(1) {
   padding: 0.5em 0.8em 0.4em;
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 0.4857rem + 0.7589vw, 1.7rem);
   outline: none;
   border: none;
   cursor: pointer;
@@ -202,7 +211,7 @@ nav .mainbutton button:active {
 }
 .views .firstview .ctabutton button:nth-child(2) {
   padding: 0.5em 0.8em 0.4em;
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 0.4857rem + 0.7589vw, 1.7rem);
   outline: none;
   border: none;
   cursor: pointer;
@@ -226,21 +235,34 @@ nav .mainbutton button:active {
   opacity: 0.8;
 }
 .views .firstview .details {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: unset;
+  position: relative;
+  margin-top: 2.8em;
+  text-align: center;
+}
+.views .firstview .details .toppeople,
+.views .firstview .details .ceoquote {
+  top: 30%;
 }
 .views .firstview .details .toppeople {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: white;
+  position: absolute;
+  left: 10%;
+  font-size: clamp(0.65rem, 0.3286rem + 0.6696vw, 1.4rem);
+}
+.views .firstview .details .toppeople h3 {
+  font-size: 1.5em;
 }
 .views .firstview .details .toppeople .card {
-  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5em 2em 1em;
   margin-top: 1em;
+  width: max-content;
   border: 2px solid white;
   border-radius: 10px;
 }
@@ -253,7 +275,7 @@ nav .mainbutton button:active {
 .views .firstview .details .toppeople .card .data div:nth-child(n+2) {
   margin-left: 1em;
 }
-.views .firstview .details .toppeople .card .data .details {
+.views .firstview .details .toppeople .card .data .detail {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -268,8 +290,88 @@ nav .mainbutton button:active {
 .views .firstview .details .toppeople .card .data .profile img {
   width: 5em;
 }
+.views .firstview .details .toppeople .card .pagination button {
+  padding: 0.5em 0.8em 0.4em;
+  font-size: 0.75rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  transition-property: color, background-color, opacity;
+  padding: 0.2em 0.5em;
+  opacity: 0.5;
+}
+.views .firstview .details .toppeople .card .pagination button img {
+  height: 1em;
+  margin-right: 0.7em;
+}
+.views .firstview .details .toppeople .card .pagination button.active {
+  opacity: 1;
+}
+.views .firstview .details .toppeople .card .pagination button:hover {
+  opacity: 0.8;
+}
 .views .firstview .details .ceoimg img {
-  height: 40rem;
+  height: clamp(28rem, 10rem + 37.5vw, 70rem);
+}
+.views .firstview .details .ceoquote {
+  position: absolute;
+  right: 10%;
+  text-align: left;
+  font-style: italic;
+  font-size: clamp(0.8rem, 0.3286rem + 0.9821vw, 1.9rem);
+}
+.views .firstview .details .ceoquote .quote,
+.views .firstview .details .ceoquote .quoteby {
+  width: fit-content;
+}
+.views .firstview .details .ceoquote .quote p {
+  font-weight: 500;
+  font-size: 1em;
+}
+.views .firstview .details .ceoquote .quoteby {
+  position: relative;
+  margin-top: 1em;
+}
+.views .firstview .details .ceoquote .quoteby p {
+  font-size: 0.9em;
+  display: inline;
+  font-weight: 400;
+}
+.views .firstview .details .ceoquote .quoteby::before {
+  content: "-";
+  font-size: 1em;
+}
+.views .firstview .details .ceoquote .quoteby::after {
+  position: absolute;
+  height: 25em;
+  width: 20em;
+  top: -10em;
+  right: -7em;
+  content: "";
+  background: url("./assets/ceoquote_bg.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.views .secondview {
+  margin-top: 5em;
+  background-image: url("./assets/BG02.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 80%;
+  text-align: center;
+}
+.views .secondview section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+}
+.views .secondview section div {
+  border: 2px solid white;
+  border-radius: 10px;
 }
 
 @media (max-width: 767px) {

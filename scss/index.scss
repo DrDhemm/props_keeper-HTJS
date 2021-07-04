@@ -5,6 +5,7 @@
 
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  color: $base01;
 }
 
 html {
@@ -47,8 +48,13 @@ nav {
   top: 0;
   left: 0;
 
+  .logo,
+  .mainbutton {
+    flex: 1;
+  }
+
   .logo {
-    @include flex;
+    @include flex($jc: flex-start);
 
     height: 100%;
 
@@ -118,6 +124,8 @@ nav {
   }
 
   .mainbutton {
+    @include flex($jc: flex-end);
+
     button {
       @include button(outline, 0.75em);
     }
@@ -143,7 +151,6 @@ nav {
     width: 100%;
 
     font-size: clamp(0.5rem, 0.1429rem + 1.7857vw, 1rem);
-    color: $base01;
     content: "This page not yet support viewport with dimension at 767px or lower";
   }
 }
@@ -159,7 +166,6 @@ nav {
     background-size: 100% 80%;
 
     .firstaction {
-      color: $base01;
       text-align: center;
 
       h1 {
@@ -180,28 +186,46 @@ nav {
 
       button {
         &:nth-child(1) {
-          @include button(outline, 1rem);
+          @include button(outline, $ctaFontSize);
 
           margin-right: 1em;
         }
 
         &:nth-child(2) {
-          @include button(fill, 1rem);
+          @include button(fill, $ctaFontSize);
         }
       }
     }
 
     .details {
-      @include flex;
+      position: relative;
+      margin-top: 2.8em;
+
+      text-align: center;
+
+      .toppeople,
+      .ceoquote {
+        top: 30%;
+      }
 
       .toppeople {
         @include flex($f: column);
 
-        color: $base01;
+        position: absolute;
+        left: 10%;
+
+        font-size: clamp(0.65rem, 0.3286rem + 0.6696vw, 1.4rem);
+
+        h3 {
+          font-size: 1.5em;
+        }
 
         .card {
-          padding: 1em 2em;
+          @include flex($f: column);
+
+          padding: 1.5em 2em 1em;
           margin-top: 1em;
+          width: max-content;
 
           border: $borderThicknessCard solid $base01;
           border-radius: $borderRadiusCard;
@@ -209,17 +233,17 @@ nav {
           .data {
             @include flex($f: row);
 
-            div:nth-child(n+2) {
+            div:nth-child(n + 2) {
               margin-left: 1em;
-          }
+            }
 
-            .details {
+            .detail {
               @include flex($al: flex-start, $f: column);
             }
 
             .contacts {
               a:last-child {
-                margin-left: .5em;
+                margin-left: 0.5em;
               }
 
               a img {
@@ -233,13 +257,86 @@ nav {
               }
             }
           }
+
+          .pagination {
+            button {
+              @include button($m: switcher);
+            }
+          }
         }
       }
 
       .ceoimg {
         img {
-          height: 40rem;
+          height: clamp(28rem, 10rem + 37.5vw, 70rem);
         }
+      }
+
+      .ceoquote {
+        position: absolute;
+        right: 10%;
+
+        text-align: left;
+        font-style: italic;
+        font-size: clamp(0.8rem, 0.3286rem + 0.9821vw, 1.9rem);
+
+        .quote,
+        .quoteby {
+          width: fit-content;
+        }
+
+        .quote p {
+          font-weight: 500;
+          font-size: 1em;
+        }
+
+        .quoteby {
+          position: relative;
+          margin-top: 1em;
+
+          p {
+            font-size: 0.9em;
+            display: inline;
+            font-weight: 400;
+          }
+
+          &::before {
+            content: "-";
+            font-size: 1em;
+          }
+
+          &::after {
+            position: absolute;
+            height: 25em;
+            width: 20em;
+            top: -10em;
+            right: -7em;
+
+            content: "";
+            background: url("./assets/ceoquote_bg.webp");
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+  }
+
+  .secondview {
+    margin-top: 5em;
+
+    background-image: url("./assets/BG02.svg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 80%;
+    text-align: center;
+
+    section {
+      @include flex;
+
+      div {
+        border: $borderThicknessCard solid $base01;
+        border-radius: $borderRadiusCard;
       }
     }
   }

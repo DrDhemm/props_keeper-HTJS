@@ -4,6 +4,7 @@ $defaultFontSize: 14px;
 // Button value
 $borderRadiusButton: 6px;
 $borderThicknessButton: 2px;
+$ctaFontSize: clamp(0.85rem, 0.4857rem + 0.7589vw, 1.7rem);
 
 // Card value
 $borderRadiusCard: 10px;
