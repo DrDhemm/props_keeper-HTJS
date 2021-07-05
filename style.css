@@ -300,7 +300,9 @@ nav .mainbutton button:active {
   font-weight: 500;
   transition: 0.3s ease-in-out;
   transition-property: color, background-color, opacity;
-  padding: 0.2em 0.5em;
+  padding: 0;
+  height: 0.4em;
+  width: 1em;
   opacity: 0.5;
 }
 .views .firstview .details .toppeople .card .pagination button img {
@@ -360,18 +362,96 @@ nav .mainbutton button:active {
   background-image: url("./assets/BG02.svg");
   background-repeat: no-repeat;
   background-position: top;
-  background-size: 100% 80%;
+  background-size: 100% 90%;
   text-align: center;
+}
+.views .secondview h1 {
+  font-size: clamp(1.5rem, 0.6429rem + 1.7857vw, 3.5rem);
 }
 .views .secondview section {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: unset;
+  margin-top: 5em;
 }
 .views .secondview section div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  font-size: clamp(0.7rem, 0.2714rem + 0.8929vw, 1.7rem);
+  height: 20em;
+  width: 20em;
+  padding: 0 1em;
+  text-align: left;
   border: 2px solid white;
   border-radius: 10px;
+}
+.views .secondview section div img {
+  width: 6em;
+}
+.views .secondview section div h3,
+.views .secondview section div p {
+  margin-left: calc(1em - 0.2em);
+}
+.views .secondview section div p {
+  margin: 1em 0 0 1em;
+  height: 35%;
+}
+.views .secondview section div:nth-child(n+2) {
+  margin-left: 2em;
+}
+.views .secondview .pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  margin: 2em 0;
+  font-size: clamp(0.65rem, 0.2857rem + 0.7589vw, 1.5rem);
+}
+.views .secondview .pagination .dot button {
+  padding: 0.5em 0.8em 0.4em;
+  font-size: 1.2em;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  transition-property: color, background-color, opacity;
+  padding: 0;
+  height: 0.4em;
+  width: 1em;
+  opacity: 0.5;
+}
+.views .secondview .pagination .dot button img {
+  height: 1em;
+  margin-right: 0.7em;
+}
+.views .secondview .pagination .dot button.active {
+  opacity: 1;
+}
+.views .secondview .pagination .dot button:hover {
+  opacity: 0.8;
+}
+.views .secondview .pagination .arrow a:last-child {
+  margin-left: 1rem;
+}
+.views .secondview .pagination .arrow a img {
+  height: 1.6em;
+  opacity: 0.5;
+  transition: 0.3s ease-in-out;
+  transition-property: opacity;
+}
+.views .secondview .pagination .arrow a img:active {
+  opacity: 1;
+}
+.views .secondview .pagination .arrow a img:hover {
+  opacity: 0.8;
+}
+.views .secondview .pagination .arrow:last-child {
+  margin-left: 60em;
 }
 
 @media (max-width: 767px) {

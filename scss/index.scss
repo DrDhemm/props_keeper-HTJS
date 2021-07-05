@@ -328,15 +328,87 @@ nav {
     background-image: url("./assets/BG02.svg");
     background-repeat: no-repeat;
     background-position: top;
-    background-size: 100% 80%;
+    background-size: 100% 90%;
     text-align: center;
+
+    h1 {
+      font-size: clamp(1.5rem, 0.6429rem + 1.7857vw, 3.5rem);
+    }
 
     section {
       @include flex;
 
+      margin-top: 5em;
+
       div {
+        @include flex(flex-start, flex-end, column);
+
+        font-size: clamp(0.7rem, 0.2714rem + 0.8929vw, 1.7rem);
+
+        height: 20em;
+        width: 20em;
+        padding: 0 1em;
+
+        text-align: left;
         border: $borderThicknessCard solid $base01;
         border-radius: $borderRadiusCard;
+
+        img {
+          width: 6em;
+        }
+
+        h3,
+        p {
+          margin-left: calc(1em - 0.2em);
+        }
+
+        p {
+          margin: 1em 0 0 1em;
+          height: 35%;
+        }
+      }
+
+      div:nth-child(n + 2) {
+        margin-left: 2em;
+      }
+    }
+
+    .pagination {
+      @include flex;
+
+      margin: 2em 0;
+      font-size: clamp(0.65rem, 0.2857rem + 0.7589vw, 1.5rem);
+
+      .dot button {
+        @include button(switcher, 1.2em);
+      }
+
+      .arrow {
+        a {
+          &:last-child {
+            margin-left: 1rem;
+          }
+
+          img {
+            height: 1.6em;
+
+            opacity: 0.5;
+            transition: $transitionPreset;
+            transition-property: opacity;
+
+            &:active {
+              opacity: 1;
+            }
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+
+        &:last-child {
+          margin-left: 60em;
+        }
       }
     }
   }
