@@ -1,3 +1,7 @@
+::selection {
+  background: #888A9F;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -40,6 +44,7 @@ nav {
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 9;
 }
 nav .logo,
 nav .mainbutton {
@@ -452,6 +457,161 @@ nav .mainbutton button:active {
 }
 .views .secondview .pagination .arrow:last-child {
   margin-left: 60em;
+}
+.views .thirdview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  margin: 7em 0;
+  font-size: clamp(0.65rem, 0.3071rem + 0.7143vw, 1.45rem);
+}
+.views .thirdview img:nth-child(n+2) {
+  margin-left: 8em;
+}
+.views .thirdview img:nth-child(1) {
+  width: 15em;
+}
+.views .thirdview img:nth-child(2) {
+  height: 7em;
+}
+.views .thirdview img:nth-child(3) {
+  width: 13em;
+}
+.views .thirdview img:nth-child(4) {
+  height: 6em;
+}
+.views .forthview {
+  font-size: clamp(0.7rem, 0.2286rem + 0.9821vw, 1.8rem);
+  padding: 3em 0;
+  position: relative;
+  text-align: center;
+}
+.views .forthview::before {
+  position: absolute;
+  top: 0;
+  left: -15em;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background-image: url("./assets/BG04_left.svg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+}
+.views .forthview::after {
+  position: absolute;
+  top: 0;
+  left: 15em;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background-image: url("./assets/BG04_left.svg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+  transform: scaleX(-1);
+}
+.views .forthview h1 {
+  font-size: clamp(1.5rem, 0.6429rem + 1.7857vw, 3.5rem);
+}
+.views .forthview img {
+  height: 20em;
+}
+.views .forthview p {
+  margin-top: 1em;
+}
+.views .fifthview {
+  margin-top: 5em;
+  background-image: url("./assets/BG05.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 90%;
+  text-align: center;
+  font-size: 1em;
+}
+.views .fifthview > h1 {
+  font-size: clamp(1.5rem, 0.6429rem + 1.7857vw, 3.5rem);
+}
+.views .fifthview > p:last-of-type {
+  color: #ADADAD;
+}
+.views .fifthview section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  margin-top: 4em;
+}
+.views .fifthview section .pricecard {
+  height: 30em;
+  width: 18em;
+  background-color: transparent;
+  border-radius: 10px;
+}
+.views .fifthview section .pricecard .features {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.views .fifthview section .pricecard .features .list-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.views .fifthview section .pricecard .features .list-wrapper p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  align-self: flex-start;
+}
+.views .fifthview section .pricecard .features .list-wrapper p::before {
+  display: inline-block;
+  height: 1.6em;
+  width: 1.6em;
+  margin-right: 0.5em;
+  content: "";
+  background-image: url("./assets/icons/icon_bullet.svg");
+  background-size: 90% 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.views .fifthview section .pricecard.main {
+  position: relative;
+  background: url("./assets/BG_accent.webp");
+  background-size: cover;
+}
+.views .fifthview section .pricecard.main h1,
+.views .fifthview section .pricecard.main h1 sup,
+.views .fifthview section .pricecard.main h2,
+.views .fifthview section .pricecard.main h3,
+.views .fifthview section .pricecard.main .features .list-wrapper p {
+  color: #0E1111;
+}
+.views .fifthview section .pricecard.main::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  position: absolute;
+  top: 1em;
+  right: 0;
+  width: 8em;
+  height: 1.5em;
+  padding: 0.2em 0.2em 0.2em 0.7em;
+  color: white;
+  content: "Recomended";
+  background-color: #191919;
+  clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 7% 50%, 0% 0%);
+  font-size: 0.8em;
+}
+.views .fifthview section .pricecard:nth-child(n+2) {
+  margin-left: 5em;
 }
 
 @media (max-width: 767px) {

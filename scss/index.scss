@@ -1,5 +1,9 @@
 @import "mixin";
 
+::selection {
+  background: $base02Highlighter;
+}
+
 * {
   margin: 0;
 
@@ -47,6 +51,7 @@ nav {
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 9;
 
   .logo,
   .mainbutton {
@@ -408,6 +413,193 @@ nav {
 
         &:last-child {
           margin-left: 60em;
+        }
+      }
+    }
+  }
+
+  .thirdview {
+    @include flex;
+
+    margin: 7em 0;
+
+    font-size: clamp(0.65rem, 0.3071rem + 0.7143vw, 1.45rem);
+
+    img {
+      &:nth-child(n + 2) {
+        margin-left: 8em;
+      }
+
+      &:nth-child(1) {
+        width: 15em;
+      }
+
+      &:nth-child(2) {
+        height: 7em;
+      }
+
+      &:nth-child(3) {
+        width: 13em;
+      }
+
+      &:nth-child(4) {
+        height: 6em;
+      }
+    }
+  }
+
+  .forthview {
+    font-size: clamp(0.7rem, 0.2286rem + 0.9821vw, 1.8rem);
+
+    padding: 3em 0;
+    position: relative;
+
+    text-align: center;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: -15em;
+      height: 100%;
+      width: 100%;
+
+      content: "";
+      background-image: url("./assets/BG04_left.svg");
+      background-position: left;
+      background-repeat: no-repeat;
+      background-size: contain;
+      z-index: -1;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 15em;
+      height: 100%;
+      width: 100%;
+
+      content: "";
+      background-image: url("./assets/BG04_left.svg");
+      background-position: left;
+      background-repeat: no-repeat;
+      background-size: contain;
+      z-index: -1;
+      transform: scaleX(-1);
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 0.6429rem + 1.7857vw, 3.5rem);
+    }
+
+    img {
+      height: 20em;
+    }
+
+    p {
+      margin-top: 1em;
+    }
+  }
+
+  .fifthview {
+    margin-top: 5em;
+
+    background-image: url("./assets/BG05.svg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 90%;
+    text-align: center;
+
+    font-size: 1em;
+
+    > h1 {
+      font-size: clamp(1.5rem, 0.6429rem + 1.7857vw, 3.5rem);
+    }
+
+    > p {
+      &:last-of-type {
+        color: $base03;
+      }
+    }
+
+    section {
+      @include flex;
+
+      margin-top: 4em;
+
+      .pricecard {
+        height: 30em;
+        width: 18em;
+
+        background-color: transparent;
+        border-radius: $borderRadiusCard;
+
+        .features {
+          @include flex($f: column);
+
+          .list-wrapper {
+            @include flex($al: flex-start, $f: column);
+
+            p {
+              @include flex;
+              align-self: flex-start;
+
+              &::before {
+                display: inline-block;
+                height: 1.6em;
+                width: 1.6em;
+                margin-right: .5em;
+
+                content: "";
+                background-image: url("./assets/icons/icon_bullet.svg");
+                background-size: 90% 90%;
+                background-position: center;
+                background-repeat: no-repeat;
+              }
+            }
+          }
+        }
+
+        &.main {
+          position: relative;
+
+          background: url("./assets/BG_accent.webp");
+          background-size: cover;
+
+          h1,
+          h1 sup,
+          h2,
+          h3,
+          .features .list-wrapper p {
+            color: $base02;
+          }
+
+          &::after {
+            @include flex;
+
+            position: absolute;
+            top: 1em;
+            right: 0;
+            width: 8em;
+            height: 1.5em;
+            padding: 0.2em 0.2em 0.2em 0.7em;
+
+            color: $base01;
+            content: "Recomended";
+            background-color: #191919;
+            clip-path: polygon(
+              100% 0,
+              100% 50%,
+              100% 100%,
+              0% 100%,
+              7% 50%,
+              0% 0%
+            );
+            font-size: 0.8em;
+          }
+        }
+
+        &:nth-child(n + 2) {
+          margin-left: 5em;
         }
       }
     }
