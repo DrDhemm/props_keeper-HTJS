@@ -486,6 +486,7 @@ nav .mainbutton button:active {
   padding: 3em 0;
   position: relative;
   text-align: center;
+  overflow-x: hidden;
 }
 .views .forthview::before {
   position: absolute;
@@ -535,6 +536,9 @@ nav .mainbutton button:active {
 .views .fifthview > h1 {
   font-size: clamp(1.5rem, 0.6429rem + 1.7857vw, 3.5rem);
 }
+.views .fifthview > p {
+  font-size: clamp(0.7rem, 0.3571rem + 0.7143vw, 1.5rem);
+}
 .views .fifthview > p:last-of-type {
   color: #ADADAD;
 }
@@ -546,16 +550,37 @@ nav .mainbutton button:active {
   margin-top: 4em;
 }
 .views .fifthview section .pricecard {
-  height: 30em;
-  width: 18em;
-  background-color: transparent;
-  border-radius: 10px;
-}
-.views .fifthview section .pricecard .features {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-size: clamp(0.7rem, 0.3571rem + 0.7143vw, 1.5rem);
+  height: 33em;
+  width: 19em;
+  padding: 3em 0;
+  background-color: transparent;
+  border-radius: 10px;
+  transform: scale(0.9);
+}
+.views .fifthview section .pricecard h2 {
+  font-size: 1.6em;
+}
+.views .fifthview section .pricecard h1 {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 7em;
+  line-height: 1em;
+}
+.views .fifthview section .pricecard h1 sup {
+  font-size: 0.4em;
+}
+.views .fifthview section .pricecard .features {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 1em;
 }
 .views .fifthview section .pricecard .features .list-wrapper {
   display: flex;
@@ -580,11 +605,62 @@ nav .mainbutton button:active {
   background-size: 90% 90%;
   background-position: center;
   background-repeat: no-repeat;
+  filter: invert(100%);
+}
+.views .fifthview section .pricecard .features .list-wrapper p:nth-child(n+2) {
+  margin-top: 0.5em;
+}
+.views .fifthview section .pricecard button {
+  padding: 0.5em 0.8em 0.4em;
+  font-size: 1.2em;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  transition-property: color, background-color, opacity;
+  border: 2px solid white;
+  background-color: white;
+  color: #0E1111;
+  opacity: 0.8;
+  padding: 0.5em 1.2em;
+  border: none;
+  font-weight: 700;
+  font-style: italic;
+  color: #0E1111;
+  background-image: url("./assets/BG_accent.webp");
+  background-size: cover;
+  background-position: 1% -21%;
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+  transition-property: transform, background-position;
+}
+.views .fifthview section .pricecard button img {
+  height: 1em;
+  margin-right: 0.7em;
+}
+.views .fifthview section .pricecard button:hover {
+  opacity: 1;
+}
+.views .fifthview section .pricecard button:active {
+  opacity: 0.8;
+}
+.views .fifthview section .pricecard button:hover {
+  transform: scale(1.05);
+  opacity: 1;
+  background-position: 1% -25%;
+}
+.views .fifthview section .pricecard button:active {
+  transform: scale(0.95);
+  opacity: 1;
+  background-position: 1% -18%;
 }
 .views .fifthview section .pricecard.main {
   position: relative;
   background: url("./assets/BG_accent.webp");
   background-size: cover;
+  transform: scale(1);
 }
 .views .fifthview section .pricecard.main h1,
 .views .fifthview section .pricecard.main h1 sup,
@@ -592,6 +668,52 @@ nav .mainbutton button:active {
 .views .fifthview section .pricecard.main h3,
 .views .fifthview section .pricecard.main .features .list-wrapper p {
   color: #0E1111;
+}
+.views .fifthview section .pricecard.main .list-wrapper p::before {
+  filter: unset;
+}
+.views .fifthview section .pricecard.main button {
+  padding: 0.5em 0.8em 0.4em;
+  font-size: 1.2em;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  transition-property: color, background-color, opacity;
+  border: 2px solid white;
+  background-color: white;
+  color: #0E1111;
+  opacity: 0.8;
+  padding: 0.5em 1.2em 0.55em;
+  border: none;
+  font-weight: 700;
+  font-style: italic;
+  color: white;
+  background-image: none;
+  background-color: #0E1111;
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+  transition-property: transform;
+}
+.views .fifthview section .pricecard.main button img {
+  height: 1em;
+  margin-right: 0.7em;
+}
+.views .fifthview section .pricecard.main button:hover {
+  opacity: 1;
+}
+.views .fifthview section .pricecard.main button:active {
+  opacity: 0.8;
+}
+.views .fifthview section .pricecard.main button:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+.views .fifthview section .pricecard.main button:active {
+  transform: scale(0.95);
+  opacity: 1;
 }
 .views .fifthview section .pricecard.main::after {
   display: flex;
@@ -613,7 +735,6 @@ nav .mainbutton button:active {
 .views .fifthview section .pricecard:nth-child(n+2) {
   margin-left: 5em;
 }
-
 @media (max-width: 767px) {
   .overlay {
     display: block;

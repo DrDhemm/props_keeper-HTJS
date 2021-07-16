@@ -1,4 +1,4 @@
-@import "variable";
+@import 'variable';
 
 @mixin flex($al: center, $jc: center, $f: unset) {
   display: flex;
@@ -17,7 +17,7 @@
   }
 }
 
-@mixin button($m: fill, $f: 0.75rem) {
+@mixin button($m: fill, $f: 0.75rem, $bg: none) {
   padding: 0.5em 0.8em 0.4em;
 
   font-size: $f;
@@ -47,6 +47,57 @@
     &:active {
       opacity: 0.8;
     }
+
+    @if $bg == black {
+      padding: 0.5em 1.2em 0.55em;
+
+      border: none;
+      font-weight: 700;
+      font-style: italic;
+      color: $base01;
+      background-image: none;
+      background-color: $base02;
+      opacity: 1;
+      transition: $transitionPreset;
+      transition-property : transform;
+
+      &:hover {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+
+      &:active {
+        transform: scale(0.95);
+        opacity: 1;
+      }
+    }
+
+    @if $bg == img {
+      padding: 0.5em 1.2em;
+
+      border: none;
+      font-weight: 700;
+      font-style: italic;
+      color: $base02;
+      background-image: url('./assets/BG_accent.webp');
+      background-size: cover;
+      background-position: 1% -21%;
+      opacity: 1;
+      transition: $transitionPreset;
+      transition-property : transform, background-position;
+
+      &:hover {
+        transform: scale(1.05);
+        opacity: 1;
+        background-position: 1% -25%;
+      }
+      
+      &:active {
+        transform: scale(0.95);
+        opacity: 1;
+        background-position: 1% -18%;
+      }
+    }
   } @else if $m == outline {
     border: $borderThicknessButton solid $base01;
     background-color: transparent;
@@ -62,17 +113,17 @@
     }
   } @else if $m == switcher {
     padding: 0;
-    height: .4em;
+    height: 0.4em;
     width: 1em;
 
-    opacity: .5;
+    opacity: 0.5;
 
     &.active {
       opacity: 1;
     }
 
     &:hover {
-      opacity: .8;
+      opacity: 0.8;
     }
   }
 }
