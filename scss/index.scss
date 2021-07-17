@@ -10,6 +10,19 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
   color: $base01;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $base02;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $base01;
+    border-radius: 10px;
+  }
 }
 
 html {
@@ -24,19 +37,6 @@ body {
   background-repeat: no-repeat;
   overflow-y: scroll;
   overflow-x: hidden;
-
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: $base02;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: $base01;
-    border-radius: 10px;
-  }
 }
 
 nav {
@@ -540,7 +540,7 @@ nav {
 
         background-color: transparent;
         border-radius: $borderRadiusCard;
-        transform: scale(.9);
+        transform: scale(0.9);
 
         h2 {
           font-size: 1.6em;
@@ -594,7 +594,7 @@ nav {
         button {
           @include button(fill, 1.2em, img);
         }
-        
+
         &.main {
           position: relative;
 
@@ -653,7 +653,223 @@ nav {
   }
 
   .sixthview {
-    
+    margin-top: 5em;
+
+    background-image: url('./assets/BG06.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    font-size: clamp(0.7rem, 0.3143rem + 0.8036vw, 1.6rem);
+
+    > h1 {
+      font-size: clamp(1.5rem, 0.6429rem + 1.7857vw, 3.5rem);
+    }
+
+    section {
+      @include flex;
+
+      margin-top: 2em;
+
+      gap: 2em;
+
+      .card {
+        @include flex($f: column, $al: flex-start, $jc: space-between);
+
+        height: 32em;
+        width: 25em;
+        padding: 5em 1.5em;
+
+        text-align: left;
+        background-image: url('./assets/BG_contactcard.webp');
+        background-size: cover;
+        border-radius: $borderRadiusCard;
+
+        .features {
+          flex: 1;
+
+          .list-wrapper {
+            @include flex($al: flex-start, $f: column);
+
+            p {
+              @include flex;
+              align-self: flex-start;
+
+              &::before {
+                display: inline-block;
+                height: 1.6em;
+                width: 1.6em;
+                margin-right: 0.5em;
+
+                content: '';
+                background-size: 90% 90%;
+                background-position: center;
+                background-repeat: no-repeat;
+              }
+
+              &#phone {
+                &::before {
+                  background-image: url('./assets/icons/icon_call.svg');
+                }
+              }
+
+              &#email {
+                &::before {
+                  background-image: url('./assets/icons/icon_email.svg');
+                }
+              }
+
+              &#address {
+                &::before {
+                  background-image: url('./assets/icons/icon_home.svg');
+                }
+              }
+
+              &:nth-child(n + 2) {
+                margin-top: 1em;
+              }
+            }
+          }
+        }
+
+        > p,
+        > div {
+          margin-top: 1.5em;
+        }
+      }
+
+      .contact-form {
+        @include flex($al: flex-start, $jc: space-between, $f: column);
+
+        height: 32em;
+        width: 40em;
+        padding-top: 0.5em;
+
+        text-align: left;
+
+        > form,
+        > div {
+          margin-top: 1em;
+        }
+
+        .categories {
+          @include flex($jc: flex-start);
+
+          gap: 1em;
+          flex-wrap: wrap;
+
+          width: 30em;
+
+          > input {
+            display: none;
+          }
+
+          > label {
+            display: inline-block;
+
+            padding: 0.5em 0.8em 0.4em;
+
+            font-size: 0.8em;
+            font-weight: 500;
+            user-select: none;
+            cursor: pointer;
+            border: $borderThicknessButton solid $base01;
+            border-radius: $borderRadiusButton;
+            background-image: none;
+            transition: $transitionPreset;
+            transition-property: background-position;
+          }
+
+          > input:checked + label {
+            color: $base02;
+            background-image: url('./assets/BG_accent.webp');
+            background-size: cover;
+            background-position: 1% -19%;
+
+            &:hover {
+              background-position: 1% -25%;
+            }
+          }
+        }
+
+        form {
+          @include flex($f: column);
+
+          flex: 1;
+          width: 100%;
+
+          .form-group {
+            @include flex($al: flex-start, $jc: flex-start);
+
+            flex: 1;
+
+            width: 100%;
+            padding-top: 1em;
+
+            gap: 1em;
+
+            .leftside div,
+            .rightside div {
+              @include flex($al: flex-start, $f: column);
+
+              input,
+              textarea {
+                padding: 0.9em 0.8em;
+
+                background-color: transparent;
+                border: none;
+                border-bottom: $borderThicknessButton solid rgba($base01, 0.5);
+                outline: none;
+                transition: $transitionPreset;
+                transition-property: border-bottom;
+
+                &:focus {
+                  border-bottom: $borderThicknessButton solid rgba($base01, 1);
+                }
+              }
+
+              input {
+                width: 18em;
+
+                font-size: 1em;
+              }
+
+              &:nth-child(n + 2) {
+                margin-top: 1em;
+              }
+            }
+
+            .leftside button {
+              @include button(fill, 1em, img);
+
+              margin-top: 2em;
+            }
+
+            .rightside {
+              @include flex($al: flex-start, $jc: flex-start, $f: column);
+
+              flex: 1;
+
+              height: 100%;
+
+              div {
+                @include flex($al: flex-start, $jc: flex-start, $f: column);
+
+                width: 100%;
+                height: 100%;
+
+                textarea {
+                  width: 100%;
+                  height: 70%;
+
+                  font-size: 1em;
+                  resize: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 

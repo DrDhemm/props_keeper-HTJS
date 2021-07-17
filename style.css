@@ -8,6 +8,16 @@
   font-family: "Poppins", sans-serif;
   color: white;
 }
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: #0E1111;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 10px;
+}
 
 html {
   font-size: 14px;
@@ -20,16 +30,6 @@ body {
   background-repeat: no-repeat;
   overflow-y: scroll;
   overflow-x: hidden;
-}
-body::-webkit-scrollbar {
-  width: 5px;
-}
-body::-webkit-scrollbar-track {
-  background: #0E1111;
-}
-body::-webkit-scrollbar-thumb {
-  background-color: white;
-  border-radius: 10px;
 }
 
 nav {
@@ -735,6 +735,250 @@ nav .mainbutton button:active {
 .views .fifthview section .pricecard:nth-child(n+2) {
   margin-left: 5em;
 }
+.views .sixthview {
+  margin-top: 5em;
+  background-image: url("./assets/BG06.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  font-size: clamp(0.7rem, 0.3143rem + 0.8036vw, 1.6rem);
+}
+.views .sixthview > h1 {
+  font-size: clamp(1.5rem, 0.6429rem + 1.7857vw, 3.5rem);
+}
+.views .sixthview section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  margin-top: 2em;
+  gap: 2em;
+}
+.views .sixthview section .card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 32em;
+  width: 25em;
+  padding: 5em 1.5em;
+  text-align: left;
+  background-image: url("./assets/BG_contactcard.webp");
+  background-size: cover;
+  border-radius: 10px;
+}
+.views .sixthview section .card .features {
+  flex: 1;
+}
+.views .sixthview section .card .features .list-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.views .sixthview section .card .features .list-wrapper p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  align-self: flex-start;
+}
+.views .sixthview section .card .features .list-wrapper p::before {
+  display: inline-block;
+  height: 1.6em;
+  width: 1.6em;
+  margin-right: 0.5em;
+  content: "";
+  background-size: 90% 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.views .sixthview section .card .features .list-wrapper p#phone::before {
+  background-image: url("./assets/icons/icon_call.svg");
+}
+.views .sixthview section .card .features .list-wrapper p#email::before {
+  background-image: url("./assets/icons/icon_email.svg");
+}
+.views .sixthview section .card .features .list-wrapper p#address::before {
+  background-image: url("./assets/icons/icon_home.svg");
+}
+.views .sixthview section .card .features .list-wrapper p:nth-child(n+2) {
+  margin-top: 1em;
+}
+.views .sixthview section .card > p,
+.views .sixthview section .card > div {
+  margin-top: 1.5em;
+}
+.views .sixthview section .contact-form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 32em;
+  width: 40em;
+  padding-top: 0.5em;
+  text-align: left;
+}
+.views .sixthview section .contact-form > form,
+.views .sixthview section .contact-form > div {
+  margin-top: 1em;
+}
+.views .sixthview section .contact-form .categories {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: unset;
+  gap: 1em;
+  flex-wrap: wrap;
+  width: 30em;
+}
+.views .sixthview section .contact-form .categories > input {
+  display: none;
+}
+.views .sixthview section .contact-form .categories > label {
+  display: inline-block;
+  padding: 0.5em 0.8em 0.4em;
+  font-size: 0.8em;
+  font-weight: 500;
+  user-select: none;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 6px;
+  background-image: none;
+  transition: 0.3s ease-in-out;
+  transition-property: background-position;
+}
+.views .sixthview section .contact-form .categories > input:checked + label {
+  color: #0E1111;
+  background-image: url("./assets/BG_accent.webp");
+  background-size: cover;
+  background-position: 1% -19%;
+}
+.views .sixthview section .contact-form .categories > input:checked + label:hover {
+  background-position: 1% -25%;
+}
+.views .sixthview section .contact-form form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+.views .sixthview section .contact-form form .form-group {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: unset;
+  flex: 1;
+  width: 100%;
+  padding-top: 1em;
+  gap: 1em;
+}
+.views .sixthview section .contact-form form .form-group .leftside div,
+.views .sixthview section .contact-form form .form-group .rightside div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.views .sixthview section .contact-form form .form-group .leftside div input,
+.views .sixthview section .contact-form form .form-group .leftside div textarea,
+.views .sixthview section .contact-form form .form-group .rightside div input,
+.views .sixthview section .contact-form form .form-group .rightside div textarea {
+  padding: 0.9em 0.8em;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  outline: none;
+  transition: 0.3s ease-in-out;
+  transition-property: border-bottom;
+}
+.views .sixthview section .contact-form form .form-group .leftside div input:focus,
+.views .sixthview section .contact-form form .form-group .leftside div textarea:focus,
+.views .sixthview section .contact-form form .form-group .rightside div input:focus,
+.views .sixthview section .contact-form form .form-group .rightside div textarea:focus {
+  border-bottom: 2px solid white;
+}
+.views .sixthview section .contact-form form .form-group .leftside div input,
+.views .sixthview section .contact-form form .form-group .rightside div input {
+  width: 18em;
+  font-size: 1em;
+}
+.views .sixthview section .contact-form form .form-group .leftside div:nth-child(n+2),
+.views .sixthview section .contact-form form .form-group .rightside div:nth-child(n+2) {
+  margin-top: 1em;
+}
+.views .sixthview section .contact-form form .form-group .leftside button {
+  padding: 0.5em 0.8em 0.4em;
+  font-size: 1em;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  transition-property: color, background-color, opacity;
+  border: 2px solid white;
+  background-color: white;
+  color: #0E1111;
+  opacity: 0.8;
+  padding: 0.5em 1.2em;
+  border: none;
+  font-weight: 700;
+  font-style: italic;
+  color: #0E1111;
+  background-image: url("./assets/BG_accent.webp");
+  background-size: cover;
+  background-position: 1% -21%;
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+  transition-property: transform, background-position;
+  margin-top: 2em;
+}
+.views .sixthview section .contact-form form .form-group .leftside button img {
+  height: 1em;
+  margin-right: 0.7em;
+}
+.views .sixthview section .contact-form form .form-group .leftside button:hover {
+  opacity: 1;
+}
+.views .sixthview section .contact-form form .form-group .leftside button:active {
+  opacity: 0.8;
+}
+.views .sixthview section .contact-form form .form-group .leftside button:hover {
+  transform: scale(1.05);
+  opacity: 1;
+  background-position: 1% -25%;
+}
+.views .sixthview section .contact-form form .form-group .leftside button:active {
+  transform: scale(0.95);
+  opacity: 1;
+  background-position: 1% -18%;
+}
+.views .sixthview section .contact-form form .form-group .rightside {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+.views .sixthview section .contact-form form .form-group .rightside div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.views .sixthview section .contact-form form .form-group .rightside div textarea {
+  width: 100%;
+  height: 70%;
+  font-size: 1em;
+  resize: none;
+}
+
 @media (max-width: 767px) {
   .overlay {
     display: block;
