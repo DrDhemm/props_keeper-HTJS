@@ -3,19 +3,19 @@ $defaultFontSize: 14px;
 
 // Button value
 $borderRadiusButton: 6px;
-$borderThicknessButton: 2px;
+$borderThicknessButton: .15em;
 $ctaFontSize: clamp(0.85rem, 0.4857rem + 0.7589vw, 1.7rem);
 
 // Card value
 $borderRadiusCard: 10px;
-$borderThicknessCard: 2px;
+$borderThicknessCard: .15em;
 
 // Motion value
 $transitionPreset: 0.3s ease-in-out;
 
 // Color value
 $base01: white;
-$base02: #0E1111;
+$base02: #0e1111;
 $base03: #ADADAD;
 $base02Highlighter: #888A9F;
 $baseBGGradient: linear-gradient(

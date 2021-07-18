@@ -59,7 +59,7 @@
       background-color: $base02;
       opacity: 1;
       transition: $transitionPreset;
-      transition-property : transform;
+      transition-property: transform;
 
       &:hover {
         transform: scale(1.05);
@@ -84,18 +84,88 @@
       background-position: 1% -21%;
       opacity: 1;
       transition: $transitionPreset;
-      transition-property : transform, background-position;
+      transition-property: transform, background-position;
 
       &:hover {
         transform: scale(1.05);
         opacity: 1;
         background-position: 1% -25%;
       }
-      
+
       &:active {
         transform: scale(0.95);
         opacity: 1;
         background-position: 1% -18%;
+      }
+    }
+
+    @if $bg == imgiconright {
+      @include flex;
+      $top: 0.5em;
+      $left: 0.5em;
+
+      padding: 0.5em 1.2em;
+      position: relative;
+
+      gap: 0.6em;
+      border: none;
+      font-weight: 700;
+      background-image: url('./assets/BG_accent.webp');
+      background-size: cover;
+      background-position: 1% -21%;
+      opacity: 1;
+      transform: translate(-$left, -$top);
+      transition: $transitionPreset;
+      transition-property: transform, background-position;
+      z-index: 1;
+
+      span {
+        color: $base02;
+      }
+
+      img {
+        margin: 0;
+
+        width: 1.6em;
+        height: auto;
+      }
+
+      &:before {
+        position: absolute;
+        top: $top;
+        left: $left;
+        width: 100%;
+        height: 100%;
+
+        content: '';
+        border: $borderThicknessButton dashed $base01;
+        border-radius: $borderRadiusButton;
+        transition: $transitionPreset;
+        transition-property: top, left;
+        z-index: -1;
+      }
+
+      &:hover {
+        transform: translate(0, 0);
+        opacity: 1;
+        background-position: 1% -25%;
+        
+        &:before {
+          top: -0.15em;
+          left: -0.15em;
+        }
+      }
+      
+      &:active {
+        transform: translate(0, 0);
+        transform: scale(0.95);
+        opacity: 1;
+        background-position: 1% -18%;
+
+        &:before {
+          top: -0.15em;
+          left: -0.15em;
+        }
       }
     }
   } @else if $m == outline {

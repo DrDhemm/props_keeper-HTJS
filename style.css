@@ -12,7 +12,7 @@
   width: 5px;
 }
 *::-webkit-scrollbar-track {
-  background: #0E1111;
+  background: #0e1111;
 }
 *::-webkit-scrollbar-thumb {
   background-color: white;
@@ -37,14 +37,17 @@ nav {
   align-items: center;
   justify-content: space-between;
   flex-direction: unset;
-  font-size: 1rem;
+  font-size: clamp(1rem, 0.7857rem + 0.4464vw, 1.5rem);
   width: 100%;
   height: 4.5em;
   padding: 0.3em 5em;
   position: sticky;
-  top: 0;
+  top: 0%;
   left: 0;
   z-index: 9;
+  transition: 0.3s ease-in-out;
+  transition-property: top, background-color, font-size;
+  backdrop-filter: blur(10px);
 }
 nav .logo,
 nav .mainbutton {
@@ -91,7 +94,7 @@ nav .navigation ul li::after {
   position: absolute;
   top: 100%;
   left: 50%;
-  height: 3px;
+  height: 0.15em;
   width: 0;
   content: "";
   background-color: white;
@@ -127,7 +130,7 @@ nav .mainbutton button {
   font-weight: 500;
   transition: 0.3s ease-in-out;
   transition-property: color, background-color, opacity;
-  border: 2px solid white;
+  border: 0.15em solid white;
   background-color: transparent;
   color: white;
 }
@@ -137,7 +140,7 @@ nav .mainbutton button img {
 }
 nav .mainbutton button:hover {
   background-color: white;
-  color: #0E1111;
+  color: #0e1111;
 }
 nav .mainbutton button:active {
   opacity: 0.8;
@@ -150,8 +153,8 @@ nav .mainbutton button:active {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #0E1111;
-  z-index: 10;
+  background-color: #0e1111;
+  z-index: 11;
 }
 .overlay::before {
   display: flex;
@@ -162,6 +165,127 @@ nav .mainbutton button:active {
   width: 100%;
   font-size: clamp(0.5rem, 0.1429rem + 1.7857vw, 1rem);
   content: "This page not yet support viewport with dimension at 767px or lower";
+}
+
+.creditsmodal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  display: none;
+  font-size: clamp(0.75rem, 0.3857rem + 0.7589vw, 1.6rem);
+  position: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 10;
+  background-color: rgba(14, 17, 17, 0.5);
+}
+.creditsmodal .modal {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: column;
+  width: 60em;
+  height: 35em;
+  margin: 1em 0;
+  background-color: rgba(14, 17, 17, 0.8);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 0.15em solid #ADADAD;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  transition-property: opacity;
+}
+.creditsmodal .modal .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: unset;
+  height: 5em;
+  padding: 0 2em;
+}
+.creditsmodal .modal .head a img {
+  width: 1.5em;
+}
+.creditsmodal .modal .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  flex: 1;
+  gap: 15em;
+}
+.creditsmodal .modal .content .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 2em;
+}
+.creditsmodal .modal .content .card img {
+  width: 10em;
+  border-radius: 100%;
+  border: 0.15em solid white;
+}
+.creditsmodal .modal .content .card ul {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+.creditsmodal .modal .content .card ul li a {
+  text-decoration: none;
+  color: white;
+}
+.creditsmodal .modal .content .card ul li {
+  position: relative;
+}
+.creditsmodal .modal .content .card ul li:nth-child(n+2) {
+  margin-top: 1em;
+}
+.creditsmodal .modal .content .card ul li::after {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  height: 0.15em;
+  width: 0;
+  content: "";
+  background-color: white;
+  transition: 0.3s ease-in-out;
+  transition-property: width;
+}
+.creditsmodal .modal .content .card ul li:hover::after {
+  width: 80%;
+}
+.creditsmodal .modal .content .card ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  align-self: flex-start;
+}
+.creditsmodal .modal .content .card ul li a::before {
+  display: inline-block;
+  height: 1.6em;
+  width: 1.6em;
+  margin-right: 0.5em;
+  content: "";
+  background-size: 90% 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.creditsmodal .modal .content .card ul li a.instagram::before {
+  background-image: url("./assets/icons/icon_instagram.svg");
+}
+.creditsmodal .modal .content .card ul li a.github::before {
+  background-image: url("./assets/icons/icon_github.svg");
+}
+.creditsmodal .modal .content .card ul li a.dribbble::before {
+  background-image: url("./assets/icons/icon_dribbble.svg");
 }
 
 .views {
@@ -198,7 +322,7 @@ nav .mainbutton button:active {
   font-weight: 500;
   transition: 0.3s ease-in-out;
   transition-property: color, background-color, opacity;
-  border: 2px solid white;
+  border: 0.15em solid white;
   background-color: transparent;
   color: white;
   margin-right: 1em;
@@ -209,7 +333,7 @@ nav .mainbutton button:active {
 }
 .views .firstview .ctabutton button:nth-child(1):hover {
   background-color: white;
-  color: #0E1111;
+  color: #0e1111;
 }
 .views .firstview .ctabutton button:nth-child(1):active {
   opacity: 0.8;
@@ -224,9 +348,9 @@ nav .mainbutton button:active {
   font-weight: 500;
   transition: 0.3s ease-in-out;
   transition-property: color, background-color, opacity;
-  border: 2px solid white;
+  border: 0.15em solid white;
   background-color: white;
-  color: #0E1111;
+  color: #0e1111;
   opacity: 0.8;
 }
 .views .firstview .ctabutton button:nth-child(2) img {
@@ -268,7 +392,7 @@ nav .mainbutton button:active {
   padding: 1.5em 2em 1em;
   margin-top: 1em;
   width: max-content;
-  border: 2px solid white;
+  border: 0.15em solid white;
   border-radius: 10px;
 }
 .views .firstview .details .toppeople .card .data {
@@ -390,7 +514,7 @@ nav .mainbutton button:active {
   width: 20em;
   padding: 0 1em;
   text-align: left;
-  border: 2px solid white;
+  border: 0.15em solid white;
   border-radius: 10px;
 }
 .views .secondview section div img {
@@ -620,15 +744,15 @@ nav .mainbutton button:active {
   font-weight: 500;
   transition: 0.3s ease-in-out;
   transition-property: color, background-color, opacity;
-  border: 2px solid white;
+  border: 0.15em solid white;
   background-color: white;
-  color: #0E1111;
+  color: #0e1111;
   opacity: 0.8;
   padding: 0.5em 1.2em;
   border: none;
   font-weight: 700;
   font-style: italic;
-  color: #0E1111;
+  color: #0e1111;
   background-image: url("./assets/BG_accent.webp");
   background-size: cover;
   background-position: 1% -21%;
@@ -667,7 +791,7 @@ nav .mainbutton button:active {
 .views .fifthview section .pricecard.main h2,
 .views .fifthview section .pricecard.main h3,
 .views .fifthview section .pricecard.main .features .list-wrapper p {
-  color: #0E1111;
+  color: #0e1111;
 }
 .views .fifthview section .pricecard.main .list-wrapper p::before {
   filter: unset;
@@ -682,9 +806,9 @@ nav .mainbutton button:active {
   font-weight: 500;
   transition: 0.3s ease-in-out;
   transition-property: color, background-color, opacity;
-  border: 2px solid white;
+  border: 0.15em solid white;
   background-color: white;
-  color: #0E1111;
+  color: #0e1111;
   opacity: 0.8;
   padding: 0.5em 1.2em 0.55em;
   border: none;
@@ -692,7 +816,7 @@ nav .mainbutton button:active {
   font-style: italic;
   color: white;
   background-image: none;
-  background-color: #0E1111;
+  background-color: #0e1111;
   opacity: 1;
   transition: 0.3s ease-in-out;
   transition-property: transform;
@@ -737,11 +861,10 @@ nav .mainbutton button:active {
 }
 .views .sixthview {
   margin-top: 5em;
-  background-image: url("./assets/BG06.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
   text-align: center;
-  font-size: clamp(0.7rem, 0.3143rem + 0.8036vw, 1.6rem);
+  font-size: clamp(0.65rem, 0.2429rem + 0.8482vw, 1.6rem);
+  overflow-y: visible;
 }
 .views .sixthview > h1 {
   font-size: clamp(1.5rem, 0.6429rem + 1.7857vw, 3.5rem);
@@ -842,14 +965,14 @@ nav .mainbutton button:active {
   font-weight: 500;
   user-select: none;
   cursor: pointer;
-  border: 2px solid white;
+  border: 0.15em solid white;
   border-radius: 6px;
   background-image: none;
   transition: 0.3s ease-in-out;
   transition-property: background-position;
 }
 .views .sixthview section .contact-form .categories > input:checked + label {
-  color: #0E1111;
+  color: #0e1111;
   background-image: url("./assets/BG_accent.webp");
   background-size: cover;
   background-position: 1% -19%;
@@ -889,7 +1012,7 @@ nav .mainbutton button:active {
   padding: 0.9em 0.8em;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.15em solid rgba(255, 255, 255, 0.5);
   outline: none;
   transition: 0.3s ease-in-out;
   transition-property: border-bottom;
@@ -898,7 +1021,7 @@ nav .mainbutton button:active {
 .views .sixthview section .contact-form form .form-group .leftside div textarea:focus,
 .views .sixthview section .contact-form form .form-group .rightside div input:focus,
 .views .sixthview section .contact-form form .form-group .rightside div textarea:focus {
-  border-bottom: 2px solid white;
+  border-bottom: 0.15em solid white;
 }
 .views .sixthview section .contact-form form .form-group .leftside div input,
 .views .sixthview section .contact-form form .form-group .rightside div input {
@@ -919,15 +1042,15 @@ nav .mainbutton button:active {
   font-weight: 500;
   transition: 0.3s ease-in-out;
   transition-property: color, background-color, opacity;
-  border: 2px solid white;
+  border: 0.15em solid white;
   background-color: white;
-  color: #0E1111;
+  color: #0e1111;
   opacity: 0.8;
   padding: 0.5em 1.2em;
   border: none;
   font-weight: 700;
   font-style: italic;
-  color: #0E1111;
+  color: #0e1111;
   background-image: url("./assets/BG_accent.webp");
   background-size: cover;
   background-position: 1% -21%;
@@ -977,6 +1100,237 @@ nav .mainbutton button:active {
   height: 70%;
   font-size: 1em;
   resize: none;
+}
+.views .sixthview::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  content: "";
+  background-image: url("./assets/BG06.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 95%;
+  z-index: -1;
+}
+.views .seventhview {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  font-size: clamp(0.7rem, 0.4rem + 0.625vw, 1.4rem);
+  margin-top: 5em;
+  padding: 0 clamp(3rem, -6.4286rem + 19.6429vw, 25rem) 1em clamp(3rem, -6.4286rem + 19.6429vw, 25rem);
+  width: 100vw;
+}
+.views .seventhview > div {
+  width: 100%;
+  margin-top: 1.2em;
+}
+.views .seventhview > img {
+  width: 10em;
+}
+.views .seventhview .sitemaps div ul li,
+.views .seventhview .footer ul li {
+  position: relative;
+}
+.views .seventhview .sitemaps div ul li a,
+.views .seventhview .footer ul li a {
+  color: white;
+}
+.views .seventhview .sitemaps div ul li::after,
+.views .seventhview .footer ul li::after {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  height: 0.15em;
+  width: 0;
+  content: "";
+  background-color: white;
+  transition: 0.3s ease-in-out;
+  transition-property: width;
+}
+.views .seventhview .sitemaps div ul li:hover a,
+.views .seventhview .footer ul li:hover a {
+  opacity: 1;
+}
+.views .seventhview .sitemaps div ul li:hover::after,
+.views .seventhview .footer ul li:hover::after {
+  width: 3rem;
+}
+.views .seventhview .sitemaps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: unset;
+}
+.views .seventhview .sitemaps div {
+  width: 10em;
+}
+.views .seventhview .sitemaps div label {
+  color: #ADADAD;
+}
+.views .seventhview .sitemaps div ul {
+  list-style: none;
+  padding: 0;
+}
+.views .seventhview .sitemaps div ul li a {
+  text-decoration: none;
+  color: white;
+}
+.views .seventhview .sitemaps div ul li {
+  margin-top: 0.5em;
+}
+.views .seventhview .sitemaps div ul#Connect {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.views .seventhview .sitemaps div ul#Connect li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  align-self: flex-start;
+}
+.views .seventhview .sitemaps div ul#Connect li a::before {
+  display: inline-block;
+  height: 1.6em;
+  width: 1.6em;
+  margin-right: 0.5em;
+  content: "";
+  background-size: 90% 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.views .seventhview .sitemaps div ul#Connect li a.facebook::before {
+  background-image: url("./assets/icons/icon_facebook.svg");
+}
+.views .seventhview .sitemaps div ul#Connect li a.twitter::before {
+  background-image: url("./assets/icons/icon_twitter.svg");
+}
+.views .seventhview .sitemaps div ul#Connect li a.instagram::before {
+  background-image: url("./assets/icons/icon_instagram.svg");
+}
+.views .seventhview .sitemaps div ul#Connect li a.whatsapp::before {
+  background-image: url("./assets/icons/icon_whatsapp.svg");
+}
+.views .seventhview .sitemaps div ul#Connect li a:nth-child(n+2) {
+  margin-top: 0.5em;
+}
+.views .seventhview .sitemaps div button {
+  padding: 0.5em 0.8em 0.4em;
+  font-size: 1.4em;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  transition-property: color, background-color, opacity;
+  border: 0.15em solid white;
+  background-color: white;
+  color: #0e1111;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  padding: 0.5em 1.2em;
+  position: relative;
+  gap: 0.6em;
+  border: none;
+  font-weight: 700;
+  background-image: url("./assets/BG_accent.webp");
+  background-size: cover;
+  background-position: 1% -21%;
+  opacity: 1;
+  transform: translate(-0.5em, -0.5em);
+  transition: 0.3s ease-in-out;
+  transition-property: transform, background-position;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+.views .seventhview .sitemaps div button img {
+  height: 1em;
+  margin-right: 0.7em;
+}
+.views .seventhview .sitemaps div button:hover {
+  opacity: 1;
+}
+.views .seventhview .sitemaps div button:active {
+  opacity: 0.8;
+}
+.views .seventhview .sitemaps div button span {
+  color: #0e1111;
+}
+.views .seventhview .sitemaps div button img {
+  margin: 0;
+  width: 1.6em;
+  height: auto;
+}
+.views .seventhview .sitemaps div button:before {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+  width: 100%;
+  height: 100%;
+  content: "";
+  border: 0.15em dashed white;
+  border-radius: 6px;
+  transition: 0.3s ease-in-out;
+  transition-property: top, left;
+  z-index: -1;
+}
+.views .seventhview .sitemaps div button:hover {
+  transform: translate(0, 0);
+  opacity: 1;
+  background-position: 1% -25%;
+}
+.views .seventhview .sitemaps div button:hover:before {
+  top: -0.15em;
+  left: -0.15em;
+}
+.views .seventhview .sitemaps div button:active {
+  transform: translate(0, 0);
+  transform: scale(0.95);
+  opacity: 1;
+  background-position: 1% -18%;
+}
+.views .seventhview .sitemaps div button:active:before {
+  top: -0.15em;
+  left: -0.15em;
+}
+.views .seventhview .sitemaps div:last-of-type {
+  align-self: stretch;
+  width: 20em;
+}
+.views .seventhview .dividerline {
+  height: 5px;
+  border-bottom: 0.15em solid white;
+}
+.views .seventhview .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: unset;
+}
+.views .seventhview .footer ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+  list-style: none;
+  padding: 0;
+}
+.views .seventhview .footer ul li a {
+  text-decoration: none;
+  color: white;
+}
+.views .seventhview .footer ul li:nth-child(n+2) {
+  margin-left: 2em;
 }
 
 @media (max-width: 767px) {
